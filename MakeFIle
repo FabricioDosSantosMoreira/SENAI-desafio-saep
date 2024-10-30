@@ -1,0 +1,21 @@
+.PHONY: first-sqlite-run first-mysql-run run
+
+# OBS: se estiver no Linux use 'export' no lugar de 'set'
+first-sqlite-run:
+	set USE_SQLITE=True && \
+	cd ./projeto/ && \
+	python manage.py makemigrations app && \
+	python manage.py migrate && \
+	python manage.py runserver
+
+# OBS: se estiver no Linux use 'export' no lugar de 'set'
+first-mysql-run:
+	set USE_SQLITE=False && \
+	cd ./projeto/ && \
+	python manage.py makemigrations app && \
+	python manage.py migrate && \
+	python manage.py runserver
+
+run:
+	cd ./projeto/ && \
+	python manage.py runserver
