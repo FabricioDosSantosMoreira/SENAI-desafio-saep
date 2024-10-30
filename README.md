@@ -62,12 +62,11 @@ make first-sqlite-run
 make first-mysql-run
 
 # Ou, utilize:
-set USE_SQLITE=False  # USE_SQLITE pode ser False ou True, caso seja True usará o SQLite. Caso Falso usará o MySQL.
+# USE_SQLITE em `./desafio/.env` pode ser False ou True, caso seja True usará o SQLite. Caso Falso usará o MySQL.
 cd ./desafio/
 poetry run python manage.py makemigrations app
 poetry run python manage.py migrate
 poetry run python manage.py runserver
-
 
 
 # 🔄 Para executar o projeto novamente:
