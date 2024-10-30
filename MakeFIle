@@ -1,23 +1,29 @@
-.PHONY: first-sqlite-run first-mysql-run run
+.PHONY: install first-sqlite-run first-mysql-run run
 
-# OBS: se estiver no Linux use 'export' no lugar de 'set'
+install:
+	cd ./desafio/ && \
+	pip install poetry && \
+	poetry install
+
+
+# OBS: use 'export' no Linux, 'set' no Windows
 first-sqlite-run:
 	set USE_SQLITE=True && \
-	cd ./projeto/ && \
-	python manage.py makemigrations app && \
-	python manage.py migrate && \
-	python manage.py runserver
+	cd ./desafio/ && \
+	poetry run python manage.py makemigrations app && \
+	poetry run python manage.py migrate && \
+	poetry run python manage.py runserver
 
 
-# OBS: se estiver no Linux use 'export' no lugar de 'set'
+# OBS: use 'export' no Linux, 'set' no Windows
 first-mysql-run:
 	set USE_SQLITE=False && \
-	cd ./projeto/ && \
-	python manage.py makemigrations app && \
-	python manage.py migrate && \
-	python manage.py runserver
+	cd ./desafio/ && \
+	poetry run python manage.py makemigrations app && \
+	poetry run python manage.py migrate && \
+	poetry run python manage.py runserver
 
 
 run:
-	cd ./projeto/ && \
-	python manage.py runserver
+	cd ./desafio/ && \
+	poetry run python manage.py runserver
