@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "Desafio SAEP"
+version = "1.0.0"
+description = "Desafio SAEP"
+authors = ["Fabrício dos Santos Moreira"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "5.1.2"
+pytz = "2024.2"
+django-environ = "0.11.2"
+mysqlclient = "2.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
