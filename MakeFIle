@@ -8,6 +8,7 @@ first-sqlite-run:
 	python manage.py migrate && \
 	python manage.py runserver
 
+
 # OBS: se estiver no Linux use 'export' no lugar de 'set'
 first-mysql-run:
 	set USE_SQLITE=False && \
@@ -15,6 +16,7 @@ first-mysql-run:
 	python manage.py makemigrations app && \
 	python manage.py migrate && \
 	python manage.py runserver
+
 
 run:
 	cd ./projeto/ && \
