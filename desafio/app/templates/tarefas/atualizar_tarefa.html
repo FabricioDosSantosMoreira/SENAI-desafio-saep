@@ -1,0 +1,58 @@
+{% extends "global/base.html" %}
+
+{% block title %}Tarefas | Edição{% endblock title %}
+
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-container">
+        <h1 class="form-text">Editar Tarefa</h1>
+
+        <!-- Exibir erros não associados a campos específicos -->
+        {% if form.non_field_errors %}
+            <div class="form-error-message">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <!-- Exibir erros de campo específicos -->
+        {% for field in form %}
+            {% if field.errors %}
+                <div class="form-error-message">
+                    {{ field.errors.as_text }}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <form action="{% url 'atualizar_tarefa' tarefa.id %}" method="POST">
+            {% csrf_token %}
+
+            <!-- Usuário da Tarefa-->
+            <div class="form-input-group">
+                <label for="{{ form.usuario.id_for_label }}">Usuário</label>
+                {{ form.usuario }}
+            </div>
+
+            <!-- Nome do Setor -->
+            <div class="form-input-group">
+                <label for="{{ form.nome_setor.id_for_label }}">Nome do Setor</label>
+                {{ form.nome_setor }}
+            </div>
+
+            <!-- Descrição -->
+            <div class="form-input-group">
+                <label for="{{ form.descricao.id_for_label }}">Descrição</label>
+                {{ form.descricao }}
+            </div>
+
+            <!-- Prioridade -->
+            <div class="form-input-group">
+                <label for="{{ form.prioridade.id_for_label }}">Prioridade</label>
+                {{ form.prioridade }}
+            </div>
+
+            <!-- Botão de Submissão -->
+            <button type="submit" class="form-btn-submit">Editar</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

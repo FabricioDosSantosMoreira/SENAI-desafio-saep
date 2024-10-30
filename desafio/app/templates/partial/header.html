@@ -1,0 +1,14 @@
+{% load static %}
+
+{% block header %}
+<div class="header_wrapper">
+    <div class="row">
+        <a class="header-title" href="{% url 'home' %}">Gerenciamento de Tarefas</a>  
+        <div class="header-buttons-row">
+            <a class="header-button" href="{% url 'cadastrar_usuario' %}">Cadastro de Usuário</a>    
+            <a class="header-button" href="{% url 'cadastrar_tarefa' %}">Cadastro de Tarefa</a>
+            <a class="header-button" href="{% url 'gerenciar_tarefas' %}">Gerenciar Tarefas</a>
+        </div>
+    </div>
+</div> 
+{% endblock header %}

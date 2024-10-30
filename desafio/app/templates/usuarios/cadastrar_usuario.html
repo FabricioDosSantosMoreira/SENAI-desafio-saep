@@ -1,0 +1,46 @@
+{% extends "global/base.html" %}
+
+{% block title %}Usuários | Cadastrar{% endblock title %}
+
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-container">
+        <h1 class="form-text">Cadastrar Usuário</h1>
+
+        <!-- Exibir erros não associados a campos específicos -->
+        {% if form.non_field_errors %}
+            <div class="form-error-message">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <!-- Exibir erros de campo específicos -->
+        {% for field in form %}
+            {% if field.errors %}
+                <div class="form-error-message">
+                    {{ field.errors.as_text }}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <form action="{% url 'cadastrar_usuario' %}" method="POST">
+            {% csrf_token %}
+
+            <!-- Nome -->
+            <div class="form-input-group">
+                <label for="{{ form.nome.id_for_label }}">Nome</label>
+                {{ form.nome }}
+            </div>
+
+            <!-- Email -->
+            <div class="form-input-group">
+                <label for="{{ form.email.id_for_label }}">Email</label>
+                {{ form.email }}
+            </div>
+
+            <!-- Botão de Submissão -->
+            <button type="submit" class="form-btn-submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

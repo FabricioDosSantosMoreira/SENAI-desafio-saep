@@ -1,0 +1,123 @@
+{% extends "global/base.html" %}
+
+{% block title %}Tarefas | Gerenciar{% endblock title %}
+
+{% block content %}
+<div class="task-container">
+
+    <div id="confirmationPopup" class="popup">
+        <div class="popup-text">Tem certeza que deseja deletar esta tarefa?</div>
+        <button id="confirmYes" class="popup-yes-btn">Sim</button>
+        <button id="confirmNo" class="popup-no-btn">Não</button>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Coluna de tarefas "FAZER" -->
+    <div class="task-column" id="fazer">
+        <div class="task-text">Fazer</div>
+        <div class="task-divider"></div>
+
+        {% for tarefa in tarefas_fazer %}
+            <div class="task-block">
+
+                <div class="task-items">Usuário: {{ tarefa.usuario.nome }}</div>
+                <div class="task-items">Descrição: {{ tarefa.descricao }}</div>
+                <div class="task-items">Nome do Setor: {{ tarefa.nome_setor }}</div>
+                <div class="task-items">Prioridade: {{ tarefa.prioridade }}</div>
+                <div class="task-items">Status: {{ tarefa.status }}</div>
+                <div class="task-items">Data de Cadastro: {{ tarefa.data_cadastro }}</div>
+
+                <!-- Formulário para atualizar o Status -->
+                <form class="task-items" action="{% url 'atualizar_status_tarefa' tarefa.id %}" method="post">
+                    {% csrf_token %}
+                    <select name="status" id="status-select">
+                        <option value="FAZER" {% if tarefa.status == "FAZER" %}selected{% endif %}>Fazer</option>
+                        <option value="FAZENDO" {% if tarefa.status == "FAZENDO" %}selected{% endif %}>Fazendo</option>
+                        <option value="PRONTO" {% if tarefa.status == "PRONTO" %}selected{% endif %}>Pronto</option>
+                    </select>
+                    <button type="submit" class="task-btn">Atualizar</button>
+                </form>
+
+                <a class="task-items task-btn" href="{% url 'atualizar_tarefa' tarefa.id %}">Editar</a>
+                <a class="task-items task-btn deleteButton" data-url="{% url 'deletar_tarefa' tarefa.id %}">Deletar</a>
+            </div>
+            <div class="task-divider"></div>
+        {% empty %}
+            <div class="task-text">Vazio!</div>
+        {% endfor %}
+    </div>
+
+    <!-- Coluna de tarefas "FAZENDO" -->
+    <div class="task-column" id="fazendo">
+        <div class="task-text">Fazendo</div>
+        <div class="task-divider"></div>
+
+        {% for tarefa in tarefas_fazendo %}
+            <div class="task-block">
+
+                <div class="task-items">Usuário: {{ tarefa.usuario.nome }}</div>
+                <div class="task-items">Descrição: {{ tarefa.descricao }}</div>
+                <div class="task-items">Nome do Setor: {{ tarefa.nome_setor }}</div>
+                <div class="task-items">Prioridade: {{ tarefa.prioridade }}</div>
+                <div class="task-items">Status: {{ tarefa.status }}</div>
+                <div class="task-items">Data de Cadastro: {{ tarefa.data_cadastro }}</div>
+
+                <div class="task-items">
+                    <!-- Formulário para atualizar o Status -->
+                    <form action="{% url 'atualizar_status_tarefa' tarefa.id %}" method="post">
+                        {% csrf_token %}
+                        <select name="status" id="status-select">
+                            <option value="FAZER" {% if tarefa.status == "FAZER" %}selected{% endif %}>Fazer</option>
+                            <option value="FAZENDO" {% if tarefa.status == "FAZENDO" %}selected{% endif %}>Fazendo</option>
+                            <option value="PRONTO" {% if tarefa.status == "PRONTO" %}selected{% endif %}>Pronto</option>
+                        </select>
+                        <button type="submit" class="task-btn">Atualizar</button>
+                    </form>
+                </div>
+
+                <a class="task-items task-btn" href="{% url 'atualizar_tarefa' tarefa.id %}">Editar</a>
+                <a class="task-items task-btn deleteButton" data-url="{% url 'deletar_tarefa' tarefa.id %}">Deletar</a>
+            </div>
+            <div class="task-divider"></div>
+        {% empty %}
+            <div class="task-text">Vazio!</div>
+        {% endfor %}
+    </div>
+
+    <!-- Coluna de tarefas "PRONTO" -->
+    <div class="task-column" id="pronto">
+        <div class="task-text">Pronto</div>
+        <div class="task-divider"></div>
+        
+        {% for tarefa in tarefas_pronto %}
+            <div class="task-block">
+
+                <div class="task-items">Usuário: {{ tarefa.usuario.nome }}</div>
+                <div class="task-items">Descrição: {{ tarefa.descricao }}</div>
+                <div class="task-items">Nome do Setor: {{ tarefa.nome_setor }}</div>
+                <div class="task-items">Prioridade: {{ tarefa.prioridade }}</div>
+                <div class="task-items">Status: {{ tarefa.status }}</div>
+                <div class="task-items">Data de Cadastro: {{ tarefa.data_cadastro }}</div>
+
+                <div class="task-items">
+                    <!-- Formulário para atualizar o Status -->
+                    <form action="{% url 'atualizar_status_tarefa' tarefa.id %}" method="post">
+                        {% csrf_token %}
+                        <select name="status" id="status-select">
+                            <option value="FAZER" {% if tarefa.status == "FAZER" %}selected{% endif %}>Fazer</option>
+                            <option value="FAZENDO" {% if tarefa.status == "FAZENDO" %}selected{% endif %}>Fazendo</option>
+                            <option value="PRONTO" {% if tarefa.status == "PRONTO" %}selected{% endif %}>Pronto</option>
+                        </select>
+                        <button type="submit" class="task-btn">Atualizar</button>
+                    </form>
+                </div>
+
+                <a class="task-items task-btn" href="{% url 'atualizar_tarefa' tarefa.id %}">Editar</a>
+                <a class="task-items task-btn deleteButton" data-url="{% url 'deletar_tarefa' tarefa.id %}">Deletar</a>
+            </div>
+            <div class="task-divider"></div>
+        {% empty %}
+            <div class="task-text">Vazio!</div>
+        {% endfor %}
+    </div>
+{% endblock content %}

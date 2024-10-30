@@ -1,0 +1,384 @@
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-size: 18px;
+}
+
+body {
+    background-color: #3C3E4E;
+}
+
+
+/* Outros Estilos */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+
+/* Estilos da Home */
+.home-text-container {
+    width: 100%;
+    max-width: 80%;
+
+    margin: 0 auto;
+    margin-top: 160px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-text-content {
+    color: #FFFFFF;
+
+    font-weight: 600;
+    font-size: 46px;
+
+    width: 750px;
+    line-height: 60px;   
+}
+
+
+/* Estilos do Header */
+.header_wrapper {
+    background-color: #0056B3;
+
+    width: 100%;
+    height: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-title {
+    color: #FFFFFF;
+    margin-left: 12px;
+
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.header-buttons-row {
+    display: flex;
+
+    margin-right: 24px;
+    gap: 10px;
+}
+
+.header-button {
+    background: #3C3E4E;
+    color: #FFFFFF;
+
+    font-size: 14px;
+
+    padding: 6px 12px;
+    min-width: 120px;
+    border-radius: 6px;
+
+    text-align: center;
+    text-decoration: none;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.header-button:hover {
+    background-color: #6A737B;
+}
+
+
+/* Estilos do Form */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 92vh; 
+    padding-top: 48px; 
+    padding-bottom: 48px; 
+
+    box-sizing: border-box;
+}
+
+.form-container {
+    background-color: #0056B3;
+
+    padding: 36px;
+    width: 360px;
+
+    border-radius: 12px;
+}
+
+.form-text {
+    color: #FFFFFF;
+    text-align: center;
+    
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+
+    text-align: center;
+    font-size: 14px;
+
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-input-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 24px;
+    min-width: 100%;
+}
+
+.form-input-group label {
+    color: #FFFFFF;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    margin-bottom: 5px;
+    min-width: 100%;
+}
+
+.form-input-group input {
+    width: 100%; 
+    height: 48px;
+    min-width: 100%;
+    padding: 12px;
+
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.form-input-group input:focus {
+    border-color: #3C3E4E;
+    outline: none;
+    min-width: 100%;
+}
+
+.form-input-group select {
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+
+    border-radius: 6px;
+    box-sizing: border-box; 
+}
+
+.form-input-group select:focus {
+    border-color: #3C3E4E;
+    outline: none;
+    min-width: 100%;
+}
+
+.form-input-group textarea {
+    width: 100%;
+    height: 96px;
+    padding: 12px;
+
+    border-radius: 6px;
+    box-sizing: border-box; 
+}
+
+.form-input-group textarea:focus {
+    border-color: #3C3E4E;
+    outline: none;
+    min-width: 100%;
+}
+
+.form-btn-submit {
+    background-color: #3C3E4E;
+    color: #FFFFFF;
+
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 6px;
+    
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-btn-submit:hover {
+    background-color: #6A737B;
+}
+
+
+/* Estilos dos blocos de tarefas */
+.task-container {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 48px 16px;
+    gap: 24px;
+}
+
+.task-column {
+    background-color: #FFFFFF;
+
+    flex: 1;
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+}
+
+.task-text {
+    text-align: center;
+    color: #3C3E4E;
+
+    margin: 12px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.task-divider {
+    background-color: #3C3E4E;
+
+    width: 100%;
+    height: 3px;
+    margin: 0 auto;
+}
+
+.task-block {
+    background-color: #6A737B;
+
+    margin: 12px 0;
+    padding: 12px 12px;
+    padding-bottom: 24px;
+
+    border: none;
+    border-radius: 12px;
+}
+
+.task-items {
+    color: #FFFFFF;
+    margin: 12px 0;
+
+    font-size: 16px;
+}
+
+.task-items select {
+    background-color: #FFFFFF;
+    color: #3C3E4E;
+
+    margin-top: 12px;
+    padding: 6px 12px;
+
+    border: none;
+    border-radius: 8px;
+}
+
+.task-items select option {
+    background-color: #FFFFFF;
+    color: #3C3E4E;
+}
+
+.task-btn {
+    background-color: #3C3E4E;
+    color: #FFFFFF;
+
+    margin-top: 12px;
+    padding: 6px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    text-align: center;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.task-btn:hover {
+    background-color: #6A737B;
+}
+
+
+/* Pop-up de confirmação do botão deletar */
+.popup, .overlay {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #6A737B;
+    border: 1px solid #3C3E4E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup.show, .overlay.show {
+    display: block;
+}
+
+.popup-text {
+    color: #FFFFFF;
+}
+
+.popup-yes-btn {
+    background-color: #33ff00;
+    color: #FFFFFF;
+
+    margin-top: 12px;
+    padding: 6px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    text-align: center;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.popup-no-btn {
+    background-color: #FF0000;
+    color: #FFFFFF;
+
+    margin-top: 12px;
+    padding: 6px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    text-align: center;
+    text-decoration: none;
+    text-decoration-line: none;
+}
